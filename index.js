@@ -68,24 +68,29 @@ function shuffleArray(array) {
       }
     }
 
-    function resetGame() {
-      stopTimer();
-      flippedCards = [];
-      matchedPairs = 0;
-      clicks = 0;
-      failedAttempts = 0;
-      timerElement.textContent = 0;
-      attemptsElement.textContent = 0;
+    const reset = document.getElementById('resetGame');
+  reset.addEventListener('click' , resetGame = () => {     
 
-      const cardsElements = document.querySelectorAll('.memory-card');
-      cardsElements.forEach(card => {
-        card.textContent = '?';
-        card.classList.remove('flipped');
-      });
 
-      shuffleArray(cards);
-      startTimer();
-    }
+    stopTimer();
+    flippedCards = [];
+    matchedPairs = 0;
+    clicks = 0;
+    failedAttempts = 0;
+    timerElement.textContent = 0;
+    attemptsElement.textContent = 0;
+
+    const cardsElements = document.querySelectorAll('.memory-card');
+    cardsElements.forEach(card => {
+      card.textContent = '?';
+      card.classList.remove('flipped');
+    });
+
+    shuffleArray(cards);
+    startTimer();
+
+  
+})
 
     cards.forEach((card, index) => {
       const cardElement = document.createElement('div');
